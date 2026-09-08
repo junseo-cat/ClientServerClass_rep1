@@ -35,7 +35,9 @@ public class Client {
 						in2 = sc.next();
 						if (in2.equals(stopWd)) break; 
 						int b = stringToInt(in2);
-						System.out.println("Server's answer : " + server.add(a,b));
+
+                        //Server와 ServerIF 에서 add관련을 지움
+                        //System.out.println("Server's answer : " + server.add(a,b));
 					} else {
 						System.out.println("잘못된 번호입니다. 0~1번을 입력해주세요.");
 						break;
