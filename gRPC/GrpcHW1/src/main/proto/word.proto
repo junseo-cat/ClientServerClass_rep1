@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "grpc.hw1";
+option java_multiple_files = true;
+
+service WordService {
+  rpc AddWord (AddWordRequest) returns (AddWordResponse);
+  rpc GetWord (GetWordRequest) returns (GetWordResponse);
+}
+
+// 메시지들을 정의한다 : 타입 필드이름 = 필드번호;
+message AddWordRequest {
+  string word = 1;
+  // word라는 문자열 필드의 고유 번호가 1이다
+  // 메시지 안에 필드가 늘어나면 필드번호를 다르게 주는 방식
+}
+message AddWordResponse {
+  string message = 1;
+}
+
+message GetWordRequest {
+  string clientName = 1;
+}
+message GetWordResponse {
+  string words = 1;
+}

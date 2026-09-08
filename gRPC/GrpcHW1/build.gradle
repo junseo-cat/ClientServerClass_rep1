@@ -1,5 +1,44 @@
 plugins {
     id 'java'
+    id 'com.google.protobuf' version '0.9.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def grpcVersion = '1.84.0'
+def protobufVersion = '3.25.9'
+
+dependencies {
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobufVersion}"
+    }
+
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+    }
+
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}
+
+
+/*
+//기존내용
+plugins {
+    id 'java'
 }
 
 group = 'org.example'
@@ -18,3 +57,5 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+ */
