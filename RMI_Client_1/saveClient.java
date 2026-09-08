@@ -16,14 +16,16 @@ public class saveClient {
 		try {
 			server = (ServerIF)Naming.lookup("Server1");
 			
+			System.out.println("Enter word to save.");
+			System.out.println("Enter 0 to exit.");
+			
 			while (true) {
 				String wd = sc.next();
 				if (wd.equals(stopWd)) break;
-				if (wd != null) {
-					server.addWd(wd);
-					System.out.println("current List "+server.getWd(myname));
-				} 
+				server.addWd(wd);
+				System.out.println("Current List "+server.getWd(myname));
 			}
+			sc.close();
 			
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block

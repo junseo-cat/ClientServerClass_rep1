@@ -13,7 +13,7 @@ public class Server extends UnicastRemoteObject implements ServerIF {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private List<String> wd = new ArrayList<>();
+	private List<String> wordList = new ArrayList<>();
 	
 	public static void main (String[] args) {
 		try {
@@ -33,21 +33,13 @@ public class Server extends UnicastRemoteObject implements ServerIF {
 		}
 	}
 	
-	public int add(int a, int b) {
-		int c = a+b;
-		System.out.println("Server send : "+c);
-		return c;
-	}
 	
-	
-	public void addWd(String n) {
-		wd.add(n);
-		System.out.println("added the list : "+n);
+	public void addWd(String word) {
+		wordList.add(word);
+		System.out.println("Added word : " + word);
 	}
-	public String getWd(String name) {
-		String a;
-		a = wd.toString();
-		System.out.println("["+name+"] read the list");
-		return a;
+	public String getWd(String clientName) {
+		System.out.println("["+clientName+"] read the list");
+		return wordList.toString();
 	}
 }
