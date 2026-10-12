@@ -19,16 +19,6 @@ public class Course implements Serializable {
         while (stringTokenizer.hasMoreTokens()) {
             this.beforeCourses.add(stringTokenizer.nextToken());
         }
-
-        // 마지막거만 저장할때
-//		this.beforeCourse = null;
-//		String lastToken = null;
-//		while (stringTokenizer.hasMoreTokens()) {
-//    		lastToken = stringTokenizer.nextToken();
-//    	}
-//		if (lastToken!=null) {
-//			this.beforeCourse = lastToken;
-//		}
     }
 
     public boolean match(String cId) {
@@ -41,8 +31,6 @@ public class Course implements Serializable {
         return this.beforeCourses;
     }
     public String toString() {
-        //String stringReturn = this.courseId + "    " + this.profName + "    " + this.courseName;
-
         String stringReturn = String.format("%s    %-10s%-40s",this.courseId, this.profName, this.courseName);
         for (int i = 0; i < this.beforeCourses.size(); i++) {
             stringReturn = stringReturn + "    " + this.beforeCourses.get(i).toString();

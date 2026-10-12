@@ -30,8 +30,6 @@ public class Student implements Serializable{
         return this.completedCoursesList;
     }
     public String toString() {
-        //String stringReturn = this.studentId + "    " + this.name + "    " + this.department;
-
         String stringReturn = String.format("%s    %-20s %s",this.studentId,this.name,this.department);
         for (int i = 0; i < this.completedCoursesList.size(); i++) {
             stringReturn = stringReturn + "    " + this.completedCoursesList.get(i).toString();
