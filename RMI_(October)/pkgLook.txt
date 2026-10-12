@@ -1,0 +1,4 @@
+PKGs Looks like:
+Client [ Client.java, ServerIF.java, Student.java, Course.java ]
+Data [ Data.java, DataIF.java, Student.java, StudentList.java, Course.java, CourseList.java ] + .txt
+Server [ Server.java, ServerIF.java, DataIF.java, Student.java, Course.java ]
